@@ -8,14 +8,24 @@
 //   vowels('Why?') --> 0
 
 function vowels(str) {
-  const vowels = "aeiou";
-  let noOfVowels = 0;
+  //.match() returns all matches in array or null
+  //g is to go through all the str elements
+  //As it will stop matching after the first match is found
+  //i is for Case Insensetive
+  const matches = str.match(/[aeiou]/gi);
 
-  for (let char of str.toLowerCase()) {
-    if (vowels.includes(char)) noOfVowels++;
-  }
-
-  return noOfVowels;
+  return matches ? matches.length : 0;
 }
 
 module.exports = vowels;
+
+// function vowels(str) {
+//   const vowels = "aeiou";
+//   let noOfVowels = 0;
+
+//   for (let char of str.toLowerCase()) {
+//     if (vowels.includes(char)) noOfVowels++;
+//   }
+
+//   return noOfVowels;
+// }
