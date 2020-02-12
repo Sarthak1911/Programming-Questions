@@ -15,27 +15,18 @@
 //       '#####'
 
 function pyramid(n) {
-  let stair = "";
-  for (let i = n; i >= 0; i--) {
-    for (let j = 0; j <= i; j++) {
-      stair += " ";
+  const midpoint = Math.floor((2 * n - 1) / 2);
+
+  for (let row = 0; row < n; row++) {
+    let level = "";
+
+    for (let column = 0; column < 2 * n - 1; column++) {
+      if (midpoint - row <= column && midpoint + row >= column) level += "#";
+      else level += " ";
     }
 
-    for (let h = 0; h <= n - i - 2; h++) {
-      stair += "#";
-    }
-  }
-  for (let i = 0; i < n; i++) {
-    for (let j = 0; j <= i; j++) {
-      stair += "#";
-    }
-
-    for (let h = 0; h <= n - i - 1; h++) {
-      stair += " ";
-    }
-    console.log(stair);
+    console.log(level);
   }
 }
 
-pyramid(3);
 module.exports = pyramid;
